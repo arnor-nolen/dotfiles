@@ -1,0 +1,9 @@
+#!/bin/sh
+Selection=true
+
+xrdb -merge ~/.Xresources
+
+. /etc/profile
+. ~/.zshrc
+
+exec dbus-launch $@
