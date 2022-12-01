@@ -1,5 +1,7 @@
 set nocompatible " Disable compatibility to old-time vi
+set tabstop=4 " Width of tab character 
 set expandtab " Convert tabs to white spaces
+set shiftwidth=4 " Size of an indent
 set number relativenumber " Add line numbers
 filetype plugin indent on " Allow auto-indenting based on file type
 syntax on " Syntax highlighting

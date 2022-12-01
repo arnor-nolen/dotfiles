@@ -1,4 +1,6 @@
 #!/bin/sh
+# Source .Xresources (for some DMs)
+xrdb -merge ~/.Xresources
 # Numlock on
 numlockx &
 # Notifications
