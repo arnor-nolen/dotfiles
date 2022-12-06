@@ -1,5 +1,6 @@
 {
-  "suggest.noselect": false,
+  "suggest.noselect": true,
+  "semanticTokens.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
@@ -8,5 +9,7 @@
     "javascriptreact",
     "typescript.tsx",
     "graphql"
-  ]
+  ],
+  "inlayHint.enable": false,
+  "clangd.compilationDatabaseCandidates": ["./build/Debug"]
 }

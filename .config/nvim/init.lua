@@ -1,5 +1,3 @@
-require('arnor') -- Source our lua files
-
 vim.opt.nu = true -- Add line numbers
 vim.opt.relativenumber = true -- Add relative line numbers
 
@@ -23,6 +21,8 @@ vim.opt.updatetime = 300 -- Faster update time, better responsiveness
 vim.opt.signcolumn = "yes" -- Always show the signcolumn
 vim.g.mapleader = " " -- Set leader key
 
+require('arnor') -- Source our lua files
+
 -- Set colorscheme
 vim.cmd("colorscheme gruvbox")
 
@@ -30,14 +30,3 @@ vim.cmd("colorscheme gruvbox")
 vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
 
-vim.cmd([[
-let g:coc_global_extensions = [
- \ 'coc-tsserver',
- \ 'coc-eslint',
- \ 'coc-prettier',
- \ 'coc-json',
- \ 'coc-clangd',
- \ ]
-]])
-
--- nmap <C-p> :GFiles<CR>
