@@ -1,3 +1,3 @@
 require('arnor.packer')
-require('arnor.coc')
+require('arnor.lsp')
 require('arnor.remap')
