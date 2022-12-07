@@ -23,9 +23,6 @@ vim.g.mapleader = " " -- Set leader key
 
 require('arnor') -- Source our lua files
 
--- Set colorscheme
-vim.cmd("colorscheme gruvbox")
-
 -- Transparent background
 vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")

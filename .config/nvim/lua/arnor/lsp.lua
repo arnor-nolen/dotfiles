@@ -9,21 +9,6 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local caps = client.server_capabilities
-  if caps.semanticTokensProvider and caps.semanticTokensProvider.full then
-    -- Add semantic highlighting
-    local augroup = vim.api.nvim_create_augroup("SemanticTokens", {})
-    vim.api.nvim_create_autocmd("TextChanged", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.semantic_tokens_full()
-      end,
-    })
-    -- Fire it first time on load as well
-    vim.lsp.buf.semantic_tokens_full()
-  end
-
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -51,26 +36,6 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-
-
-require("nvim-semantic-tokens").setup {
-  preset = "theHamsta",
-  -- highlighters is a list of modules following the interface of nvim-semantic-tokens.table-highlighter or 
-  -- function with the signature: highlight_token(ctx, token, highlight) where 
-  --        ctx (as defined in :h lsp-handler)
-  --        token  (as defined in :h vim.lsp.semantic_tokens.on_full())
-  --        highlight (a helper function that you can call (also multiple times) with the determined highlight group(s) as the only parameter)
-  highlighters = { require 'nvim-semantic-tokens.table-highlighter'}
-}
-
-local use = require('packer').use
-require('packer').startup(function()
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
-end)
 
 vim.opt.completeopt = {"menu", "menuone", "noselect"}
 
@@ -150,7 +115,7 @@ mapping = cmp.mapping.preset.insert({
   ['<C-f>'] = cmp.mapping.scroll_docs(4),
   ['<C-Space>'] = cmp.mapping.complete(),
   ['<C-e>'] = cmp.mapping.abort(),
-  ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 }),
 sources = cmp.config.sources({
   { name = 'nvim_lsp' },

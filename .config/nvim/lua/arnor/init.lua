@@ -1,3 +1,6 @@
 require('arnor.packer')
 require('arnor.lsp')
 require('arnor.remap')
+require('arnor.treesitter')
+require('arnor.theme')
+require('arnor.telescope')
