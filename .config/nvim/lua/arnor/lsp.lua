@@ -37,6 +37,13 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+
 vim.opt.completeopt = {"menu", "menuone", "noselect"}
 
 -- Add additional capabilities supported by nvim-cmp
@@ -58,6 +65,7 @@ local luasnip = require 'luasnip'
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
+local lspkind = require 'lspkind'
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -95,6 +103,19 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+  formatting = {
+    format = function(entry, vim_item)
+      if vim.tbl_contains({ 'path' }, entry.source.name) then
+        local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+        if icon then
+          vim_item.kind = icon
+          vim_item.kind_hl_group = hl_group
+          return vim_item
+        end
+      end
+      return lspkind.cmp_format({ with_text = false })(entry, vim_item)
+    end
+  }
 }
 
 -- Set up nvim-cmp.
@@ -152,11 +173,30 @@ sources = cmp.config.sources({
 })
 })
 
+local border = {
+    { "╭", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╮", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "╯", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╰", "FloatBorder" },
+    { "│", "FloatBorder" },
+}
+
+-- To instead override globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
 -- Set up lspconfig.
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities
+    capabilities = capabilities,
 }
 
 require('lspconfig')['rust_analyzer'].setup{
@@ -168,3 +208,13 @@ require('lspconfig')['rust_analyzer'].setup{
       ["rust-analyzer"] = {}
     }
 }
+
+vim.diagnostic.config({
+  virtual_text = {
+    source = "always",  -- Or "if_many"
+    prefix = ""
+  },
+  float = {
+    source = "always",  -- Or "if_many"
+  },
+})

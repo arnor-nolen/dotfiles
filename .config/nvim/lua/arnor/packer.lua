@@ -30,5 +30,7 @@ return require('packer').startup(function(use)
             ts_update()
         end,
     }
+    use 'nvim-tree/nvim-web-devicons'
+    use 'onsails/lspkind.nvim'
 end)
 

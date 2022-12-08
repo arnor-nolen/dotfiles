@@ -26,4 +26,6 @@ require('arnor') -- Source our lua files
 -- Transparent background
 vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
+vim.cmd("hi NormalFloat guibg=NONE ctermbg=NONE")
+vim.cmd("hi FloatBorder guibg=NONE ctermbg=NONE")
 
