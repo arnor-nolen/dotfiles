@@ -13,7 +13,16 @@ require("gruvbox").setup({
   inverse = true, -- invert background for search, diffs, statuslines and errors
   contrast = "soft", -- can be "hard", "soft" or empty string
   palette_overrides = {},
-  overrides = {},
+  overrides = {
+      DiagnosticSignWarn = {
+          bg = "NONE",
+          fg = "#fabd2f"
+      },
+      DiagnosticSignError = {
+          bg = "NONE",
+          fg = "#fb4934"
+      }
+  },
   dim_inactive = false,
   transparent_mode = true,
 })
