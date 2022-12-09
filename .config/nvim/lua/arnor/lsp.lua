@@ -213,7 +213,7 @@ require('lspconfig')['rust_analyzer'].setup{
 vim.diagnostic.config({
   virtual_text = {
     source = "always",  -- Or "if_many"
-    prefix = ""
+    prefix = ""
   },
   float = {
     source = "always",  -- Or "if_many"
