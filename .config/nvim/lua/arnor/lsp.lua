@@ -216,9 +216,15 @@ require('lspconfig')['rust_analyzer'].setup{
 vim.diagnostic.config({
   virtual_text = {
     source = "always",  -- Or "if_many"
-    prefix = ""
+    prefix = "",
+    format = function(diagnostic)
+        return diagnostic.message .. " [" .. diagnostic.code .. "]"; 
+    end,
   },
   float = {
     source = "always",  -- Or "if_many"
+    format = function(diagnostic)
+        return diagnostic.message .. " [" .. diagnostic.code .. "]"; 
+    end,
   },
 })
