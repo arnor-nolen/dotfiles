@@ -174,6 +174,7 @@ sources = cmp.config.sources({
 })
 })
 
+-- Override border globally
 local border = {
     { "╭", "FloatBorder" },
     { "─", "FloatBorder" },
@@ -185,13 +186,15 @@ local border = {
     { "│", "FloatBorder" },
 }
 
--- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
   opts.border = opts.border or border
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+-- Format on save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
 -- Set up lspconfig.
 require'lspconfig'.clangd.setup{
