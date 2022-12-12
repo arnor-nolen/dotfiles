@@ -1,8 +1,12 @@
 local nnoremap = require('arnor.keymap').nnoremap
+local builtin = require('telescope.builtin')
+local ext = require('telescope').extensions
 
-nnoremap("<leader>gf", "<cmd>Telescope git_files<CR>")
-nnoremap("<leader>ff", "<cmd>Telescope find_files hidden=true<CR>")
-nnoremap("<leader>dg", "<cmd>Telescope diagnostics<CR>")
-nnoremap("<leader>gs", "<cmd>Telescope git_status<CR>")
-nnoremap("<leader>sd", "<cmd>Telescope lsp_document_symbols<CR>")
-nnoremap("<leader>sw", "<cmd>Telescope lsp_workspace_symbols<CR>")
+nnoremap("<leader>gf", builtin.git_files)
+nnoremap("<leader>ff", builtin.find_files)
+nnoremap("<leader>dg", builtin.diagnostics)
+nnoremap("<leader>gs", builtin.git_status)
+nnoremap("<leader>ds", builtin.lsp_document_symbols)
+nnoremap("<leader>ws", builtin.lsp_workspace_symbols)
+nnoremap("<leader>lg", builtin.live_grep)
+nnoremap("<leader>fb", ext.file_browser.file_browser)

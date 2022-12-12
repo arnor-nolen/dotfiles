@@ -1,7 +1,7 @@
 vim.opt.nu = true -- Add line numbers
 vim.opt.relativenumber = true -- Add relative line numbers
 
-vim.opt.tabstop = 4 -- Width of tab character 
+vim.opt.tabstop = 4 -- Width of tab character
 vim.opt.softtabstop = 4 -- Width of tab character (but keep the rest)
 vim.opt.shiftwidth = 4 -- Size of an indent
 vim.opt.expandtab = true -- Convert tabs to white spaces
@@ -28,4 +28,3 @@ vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
 vim.cmd("hi NormalFloat guibg=NONE ctermbg=NONE")
 vim.cmd("hi FloatBorder guibg=NONE ctermbg=NONE")
-

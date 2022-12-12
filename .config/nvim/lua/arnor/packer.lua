@@ -4,7 +4,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    use { 
+    use {
         'ellisonleao/gruvbox.nvim'
     }
     use 'neovim/nvim-lspconfig'
@@ -17,11 +17,11 @@ return require('packer').startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     }
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -32,5 +32,11 @@ return require('packer').startup(function(use)
     }
     use 'nvim-tree/nvim-web-devicons'
     use 'onsails/lspkind.nvim'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+    use { "nvim-telescope/telescope-file-browser.nvim" }
 end)
-
