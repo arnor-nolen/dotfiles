@@ -11,11 +11,18 @@ require('telescope').setup {
             -- the default case_mode is "smart_case"
         },
         file_browser = {
-            hijack_netrw = true
+            hijack_netrw = true,
+            hidden = true
         }
     },
-    defaults = { file_ignore_patterns = { "node_modules", ".cache", ".git" } },
-    pickers = { find_files = { hidden = true } }
+    defaults = {
+        file_ignore_patterns = { "node_modules" }
+    },
+    pickers = {
+        find_files = {
+            hidden = true
+        }
+    }
 }
 
 require('telescope').load_extension('fzf')
