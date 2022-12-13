@@ -20,6 +20,7 @@ vim.opt.swapfile = false
 vim.opt.updatetime = 300 -- Faster update time, better responsiveness
 vim.opt.signcolumn = "yes" -- Always show the signcolumn
 vim.g.mapleader = " " -- Set leader key
+vim.opt.cmdheight = 1 -- Small cmdheight
 
 require('arnor') -- Source our lua files
 
