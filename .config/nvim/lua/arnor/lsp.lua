@@ -186,8 +186,8 @@ local border = {
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, options, ...)
-    opts = opts or {}
-    opts.border = opts.border or border
+    options = options or {}
+    options.border = options.border or border
     return orig_util_open_floating_preview(contents, syntax, options, ...)
 end
 
