@@ -194,6 +194,8 @@ end
 -- Format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
+require 'fidget'.setup {}
+
 -- Mason
 require('mason').setup({
     ui = {
