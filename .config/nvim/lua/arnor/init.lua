@@ -1,4 +1,5 @@
 require('arnor.packer')
+require('arnor.snippets')
 require('arnor.lsp')
 require('arnor.treesitter')
 require('arnor.theme')
