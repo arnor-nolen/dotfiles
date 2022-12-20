@@ -15,7 +15,7 @@ ls.config.set_config {
     },
 }
 
-vim.keymap.set({ 'i', 's' }, '<C-_>', function()
+vim.keymap.set({ 'i', 's' }, '<C-k>', function()
     if ls.expand_or_jumpable() then
         ls.expand_or_jump()
     end
@@ -53,7 +53,7 @@ end
 
 
 ls.add_snippets('cpp', {
-    -- Cpp specific snippets
+    -- hpp specific snippets
     s('ro5', fmt([[
         #ifndef {}{}_HPP
         #define {}{}_HPP
@@ -77,4 +77,4 @@ ls.add_snippets('cpp', {
         })),
 })
 
-ls.filetype_extend('cpp', { 'hpp' })
+-- ls.filetype_extend('cpp', { 'hpp' })
