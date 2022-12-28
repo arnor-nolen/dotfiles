@@ -2,11 +2,11 @@ require "octo".setup({
     default_remote = { "upstream", "origin" }; -- order to try remotes
     ssh_aliases = {}, -- SSH aliases. e.g. `ssh_aliases = {["github.com-work"] = "github.com"}`
     reaction_viewer_hint_icon = ""; -- marker for user reactions
-    user_icon = " "; -- user icon
+    user_icon = ""; -- user icon
     timeline_marker = ""; -- timeline marker
     timeline_indent = "2"; -- timeline indentation
-    right_bubble_delimiter = ""; -- bubble delimiter
-    left_bubble_delimiter = ""; -- bubble delimiter
+    right_bubble_delimiter = ""; -- bubble delimiter
+    left_bubble_delimiter = ""; -- bubble delimiter
     github_hostname = ""; -- GitHub Enterprise host
     snippet_context_lines = 4; -- number or lines around commented lines
     gh_env = {}, -- extra environment variables to pass on to GitHub CLI, can be a table or function returning a table
@@ -140,3 +140,5 @@ require "octo".setup({
         }
     }
 })
+
+-- use 'za' to toggle folding

@@ -41,7 +41,15 @@ require("gruvbox").setup({
         GitSignsCurrentLineBlame = {
             bg = "NONE",
             fg = "#928374"
-        }
+        },
+        OctoViewer = {
+            bg = "NONE",
+            fg = "#ebdbb2"
+        },
+        OctoBubbleRed = {
+            bg = "NONE",
+            fg = "#fb4934"
+        },
     },
     dim_inactive = false,
     transparent_mode = true,

@@ -24,3 +24,14 @@ vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
 vim.cmd("hi NormalFloat guibg=NONE ctermbg=NONE")
 vim.cmd("hi FloatBorder guibg=NONE ctermbg=NONE")
+
+-- Remove reverse color highlights in diffs
+vim.cmd("hi DiffAdd gui=NONE guibg=NONE")
+vim.cmd("hi DiffDelete gui=NONE guibg=NONE")
+vim.cmd("hi DiffChange gui=NONE guibg=NONE")
+
+-- Transparent background for Octo.nvim
+vim.cmd("hi OctoEditable guibg=NONE")
+vim.cmd("hi OctoGreenFloat guibg=NONE")
+vim.cmd("hi Folded guibg=NONE")
+vim.cmd("hi FoldColumn guibg=NONE")
