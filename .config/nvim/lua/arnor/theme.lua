@@ -25,6 +25,22 @@ require("gruvbox").setup({
         DiagnosticSignHint = {
             bg = "NONE",
             fg = "#83a598"
+        },
+        GitSignsAdd = {
+            bg = "NONE",
+            fg = "#b8bb26"
+        },
+        GitSignsChange = {
+            bg = "NONE",
+            fg = "#8ec07c"
+        },
+        GitSignsDelete = {
+            bg = "NONE",
+            fg = "#fb4934"
+        },
+        GitSignsCurrentLineBlame = {
+            bg = "NONE",
+            fg = "#928374"
         }
     },
     dim_inactive = false,

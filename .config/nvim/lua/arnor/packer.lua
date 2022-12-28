@@ -41,4 +41,15 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'j-hui/fidget.nvim'
     use 'numToStr/Comment.nvim'
+    use 'tpope/vim-fugitive'
+    use {
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'kyazdani42/nvim-web-devicons',
+        }
+    }
+    use 'nvim-telescope/telescope-symbols.nvim'
+    use 'lewis6991/gitsigns.nvim'
 end)

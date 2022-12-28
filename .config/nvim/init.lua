@@ -13,7 +13,7 @@ vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 vim.opt.updatetime = 300 -- Faster update time, better responsiveness
-vim.opt.signcolumn = "yes" -- Always show the signcolumn
+vim.opt.signcolumn = "yes:2" -- Always show the signcolumn
 vim.g.mapleader = " " -- Set leader key
 vim.opt.cmdheight = 1 -- Small cmdheight
 
