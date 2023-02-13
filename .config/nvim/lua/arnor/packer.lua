@@ -52,4 +52,10 @@ return require('packer').startup(function(use)
     }
     use 'nvim-telescope/telescope-symbols.nvim'
     use 'lewis6991/gitsigns.nvim'
+
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    use 'theHamsta/nvim-dap-virtual-text'
+
+    use 'folke/neodev.nvim'
 end)
