@@ -35,3 +35,5 @@ vim.cmd("hi OctoEditable guibg=NONE")
 vim.cmd("hi OctoGreenFloat guibg=NONE")
 vim.cmd("hi Folded guibg=NONE")
 vim.cmd("hi FoldColumn guibg=NONE")
+
+vim.cmd("hi DapUINormal guibg=NONE")
