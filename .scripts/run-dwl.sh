@@ -1,2 +1,2 @@
 #!/bin/sh
-dwl > ~/.cache/dwltags &
+dwl > ~/.cache/dwltags
