@@ -2,7 +2,7 @@ bar:
   height: 52
   location: top
   background: 282828ff
-  font: Fira Code Nerd Font Mono:size=30
+  font: Fira Code Nerd Font Mono:size=32
 
   right:
     - clock:
@@ -11,9 +11,10 @@ bar:
           - string: {text: "{date}", right-margin: 5}
           - string: {text: }
           - string: {text: "{time}"}
+  left:
     - dwl:
         number-of-tags: 9
-        dwl-info-filename: "~/.cache/dwltags"
+        dwl-info-filename: "/home/arnor/.cache/dwltags"
         content:
           list:
             items:
@@ -23,5 +24,5 @@ bar:
                     ~empty: {string: {text: "{id}"}}
                     urgent: {string: {text: "=> {id} <="}}
                     # default tag
-                    id == 0: {string: {text: "{layout} {title}"}}
+                    id == 0: {string: {text: " {layout} {title}"}}
 

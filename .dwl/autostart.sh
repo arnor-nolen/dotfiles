@@ -9,12 +9,12 @@ udiskie &
 # Set keyboard layouts
 setxkbmap -layout us,ru,fi -option grp:win_space_toggle
 # Wayland bar
-waybar &
+yambar &
 # Wallpaper
 hyprpaper &
 # Foot terminal server
 foot --server &
 # Check pacman updates
 pacman -Sy &
-# Wayland resolution script
-/home/arnor/.scripts/wl-resolution.sh &
+# Wayland resolution
+/home/arnor/.scripts/wl-resolution.sh
