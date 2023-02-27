@@ -11,20 +11,21 @@
 }
 
 #custom-dwl_tag.selected {
- color: #83a598
+ color: #282828;
+ background-color: #83a598
 }
 
 /* #custom-dwl_tag.urgent { */
 /*  background-color: #FF0000 */
 /* } */
 
-#custom-dwl_tag.active {
- border-top: 1px solid #EC5800
-}
+/* #custom-dwl_tag.active { */
+/*  border-top: 1px solid #EC5800 */
+/* } */
 
 * {
     font-family: Fira Code Nerd Font Mono, monospace;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 window#waybar {

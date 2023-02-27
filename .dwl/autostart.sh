@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Notifications
 dunst &
 # Set volume to 50 for headphones and speakers
@@ -15,3 +16,5 @@ hyprpaper &
 foot --server &
 # Check pacman updates
 pacman -Sy &
+# Wayland resolution script
+/home/arnor/.scripts/wl-resolution.sh &
