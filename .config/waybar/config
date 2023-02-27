@@ -5,11 +5,11 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "wlr/mode"],
+   "modules-left": ["custom/dwl_tag#0", "custom/dwl_tag#1", "custom/dwl_tag#2", "custom/dwl_tag#3", "custom/dwl_tag#4", "custom/dwl_tag#5", "custom/dwl_layout", "custom/dwl_title"],
     "modules-center": [],
-    "modules-right": ["mpd", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "wlr/language", "battery", "battery#bat2", "clock"],
+    "modules-right": ["mpd", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "sway/language", "battery", "battery#bat2", "clock"],
     // Modules configuration
-    // "wlr/workspaces": {
+    // "sway/workspaces": {
     //     "disable-scroll": true,
     //     "all-outputs": true,
     //     "format": "{name}: {icon}",
@@ -24,10 +24,10 @@
     //         "default": ""
     //     }
     // },
-    "wlr/mode": {
+    "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "wlr/scratchpad": {
+    "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
@@ -140,5 +140,69 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+// The empty '' argument used in the following "exec": fields works for single-monitor setups
+// For multi-monitor setups, see https://github.com/Alexays/Waybar/wiki/Configuration
+//     and enter the monitor id (like "eDP-1") as the first argument to waybar-dwl.sh
+    "custom/dwl_tag#0": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 0",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#1": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 1",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#2": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 2",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#3": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 3",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#4": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 4",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#5": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 5",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#6": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 6",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#7": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 7",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#8": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 8",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_tag#9": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' 9",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_layout": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' layout",
+     "format": "{}",
+     "return-type": "json"
+    },
+    "custom/dwl_title": {
+     "exec": "/home/arnor/pkg/waybar-dwl/waybar-dwl.sh '' title",
+     "format": "{}",
+     "escape": true,
+     "return-type": "json"
     }
 }
