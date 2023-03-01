@@ -2,15 +2,14 @@ bar:
   height: 52
   location: top
   background: 282828ff
+  foreground: ebdbb2ff
   font: Fira Code Nerd Font Mono:size=32
 
   right:
     - clock:
+        time-format: "%a %F %I:%M %p"
         content:
-          - string: {text: }
-          - string: {text: "{date}", right-margin: 5}
-          - string: {text: }
-          - string: {text: "{time}"}
+          - string: {text: "[{date} {time}]"}
   left:
     - dwl:
         number-of-tags: 9
@@ -21,6 +20,7 @@ bar:
               - map:
                   conditions:
                     selected: {string: {text: "-> {id}"}}
+                    id != 0 && empty: {string: {text: "{id}"}}
                     ~empty: {string: {text: "{id}"}}
                     urgent: {string: {text: "=> {id} <="}}
                     # default tag
