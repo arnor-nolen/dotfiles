@@ -6,8 +6,6 @@ dunst &
 pulsemixer --id sink-1 --set-volume 75 --id sink-3 --set-volume 75
 # Disk mounter
 udiskie &
-# Set keyboard layouts
-setxkbmap -layout us,ru,fi -option grp:win_space_toggle
 # Wayland bar
 yambar &
 # Wallpaper
