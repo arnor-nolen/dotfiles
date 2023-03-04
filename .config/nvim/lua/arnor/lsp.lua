@@ -54,17 +54,6 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local lspconfig = require('lspconfig')
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-        -- on_attach = my_custom_on_attach,
-        capabilities = capabilities,
-    }
-end
-
 -- luasnip setup
 local luasnip = require 'luasnip'
 
@@ -226,19 +215,37 @@ require('lspconfig')['rust_analyzer'].setup {
     }
 }
 
+require 'lspconfig'.pyright.setup {
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true
+            }
+        }
+    }
+}
+
+local diagnostic_format = function(diagnostic)
+    local text;
+    if diagnostic.code == nil then
+        text = diagnostic.message;
+    else
+        text = diagnostic.message .. " [" .. diagnostic.code .. "]";
+    end
+    return text;
+end
+
 vim.diagnostic.config({
     virtual_text = {
         source = "always", -- Or "if_many"
         prefix = "",
-        format = function(diagnostic)
-            return diagnostic.message .. " [" .. diagnostic.code .. "]";
-        end,
+        format = diagnostic_format,
     },
     float = {
         source = "always", -- Or "if_many"
-        format = function(diagnostic)
-            return diagnostic.message .. " [" .. diagnostic.code .. "]";
-        end,
+        format = diagnostic_format,
     },
 })
 
