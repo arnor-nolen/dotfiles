@@ -9,7 +9,7 @@ bar:
     - clock:
         time-format: "%a %F %I:%M %p"
         content:
-          - string: {text: "[{date} {time}]"}
+          - string: {text: "[{time}]"}
   left:
     - dwl:
         number-of-tags: 9
