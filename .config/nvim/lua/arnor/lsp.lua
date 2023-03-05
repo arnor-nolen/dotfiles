@@ -216,6 +216,12 @@ require 'lspconfig'.pyright.setup {
     }
 }
 
+require 'lspconfig'.cmake.setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
+
 -- null_ls setup
 local null_ls = require('null-ls')
 local cppcheck_args = {
