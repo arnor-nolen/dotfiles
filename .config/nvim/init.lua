@@ -16,6 +16,7 @@ vim.opt.updatetime = 300 -- Faster update time, better responsiveness
 vim.opt.signcolumn = "yes:2" -- Always show the signcolumn
 vim.g.mapleader = " " -- Set leader key
 vim.opt.cmdheight = 1 -- Small cmdheight
+vim.opt.scrolloff = 5 -- Always see next 5 lines
 
 require('arnor') -- Source our lua files
 
