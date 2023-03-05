@@ -217,7 +217,14 @@ require 'lspconfig'.pyright.setup {
 }
 
 require 'lspconfig'.cmake.setup {
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        -- Disable formatting if no .cmake-format file is present
+        if vim.fn.filereadable("./.cmake-format") == 0 then
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+        end
+    end,
     flags = lsp_flags,
     capabilities = capabilities,
 }
