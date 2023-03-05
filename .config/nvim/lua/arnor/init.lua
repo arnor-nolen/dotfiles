@@ -1,7 +1,6 @@
 require('arnor.packer')
 require('arnor.snippets')
 require('arnor.lsp')
-require('arnor.null_ls')
 require('arnor.treesitter')
 require('arnor.theme')
 require('arnor.telescope')

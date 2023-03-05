@@ -53,6 +53,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
 
 -- luasnip setup
 local luasnip = require 'luasnip'
@@ -67,10 +68,10 @@ cmp.setup {
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-y>'] = cmp.mapping.confirm {
+            ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-y>'] = cmp.mapping.confirm {
             select = true,
         },
     }),
@@ -105,11 +106,11 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -170,21 +171,6 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
 require 'fidget'.setup {}
 
--- Mason
-require('mason').setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        },
-        border = border
-    }
-})
-require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls' }
-})
-
 -- Set up lspconfig.
 require 'lspconfig'.lua_ls.setup {
     on_attach = on_attach,
@@ -211,7 +197,7 @@ require 'lspconfig'.rust_analyzer.setup {
     capabilities = capabilities,
     -- Server-specific settings...
     settings = {
-        ["rust-analyzer"] = {}
+            ["rust-analyzer"] = {}
     }
 }
 
@@ -229,6 +215,32 @@ require 'lspconfig'.pyright.setup {
         }
     }
 }
+
+-- null_ls setup
+local null_ls = require('null-ls')
+local cppcheck_args = {
+    "--enable=all",
+    "--template=gcc",
+    "$FILENAME"
+}
+
+if vim.fn.filereadable("./suppressions.txt") ~= 0 then
+    table.insert(cppcheck_args, 3, "--suppressions-list=suppressions.txt")
+end
+
+null_ls.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    sources = {
+        null_ls.builtins.formatting.black.with({
+            command = { "python", "-m", "black" }
+        }),
+        null_ls.builtins.diagnostics.cppcheck.with({
+            args = cppcheck_args
+        }),
+    },
+})
 
 local diagnostic_format = function(diagnostic)
     local text;
