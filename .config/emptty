@@ -6,4 +6,4 @@ xrdb -merge ~/.Xresources
 . /etc/profile
 . ~/.zshrc
 
-exec dbus-launch $@
+exec $@
