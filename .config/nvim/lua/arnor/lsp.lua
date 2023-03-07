@@ -238,7 +238,7 @@ local cppcheck_args = {
 }
 
 if vim.fn.filereadable("./suppressions.txt") ~= 0 then
-    table.insert(cppcheck_args, 3, "--suppressions-list=suppressions.txt")
+    table.insert(cppcheck_args, 3, "--suppressions-list=" .. vim.fn.getcwd() .. "/suppressions.txt")
 end
 
 null_ls.setup({
