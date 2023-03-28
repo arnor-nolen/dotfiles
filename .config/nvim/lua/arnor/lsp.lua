@@ -68,10 +68,10 @@ cmp.setup {
         end,
     },
     mapping = cmp.mapping.preset.insert({
-            ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-y>'] = cmp.mapping.confirm {
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-y>'] = cmp.mapping.confirm {
             select = true,
         },
     }),
@@ -106,11 +106,11 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-e>'] = cmp.mapping.abort(),
-            ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -197,7 +197,7 @@ require 'lspconfig'.rust_analyzer.setup {
     capabilities = capabilities,
     -- Server-specific settings...
     settings = {
-            ["rust-analyzer"] = {}
+        ["rust-analyzer"] = {}
     }
 }
 
@@ -234,6 +234,7 @@ local null_ls = require('null-ls')
 local cppcheck_args = {
     "--enable=all",
     "--template=gcc",
+    "--force",
     "$FILENAME"
 }
 
