@@ -167,7 +167,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, options, ...)
 end
 
 -- Format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 require 'fidget'.setup {}
 
