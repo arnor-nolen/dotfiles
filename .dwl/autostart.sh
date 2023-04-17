@@ -6,8 +6,6 @@ dunst &
 pulsemixer --id sink-1 --set-volume 75 --id sink-3 --set-volume 75
 # Disk mounter
 udiskie &
-# Wayland bar
-yambar &
 # Wallpaper
 hyprpaper &
 # Foot terminal server
