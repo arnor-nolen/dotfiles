@@ -6,13 +6,13 @@ dunst &
 pulsemixer --id sink-1 --set-volume 75 --id sink-3 --set-volume 75
 # Disk mounter
 udiskie &
-# Wayland bar
-yambar &
 # Wallpaper
 hyprpaper &
 # Foot terminal server
 foot --server &
 # Check pacman updates
 pacman -Sy &
+# dwlb bar
+dwlb -ipc &
 # Wayland resolution
 /home/arnor/.scripts/wl-resolution.sh
