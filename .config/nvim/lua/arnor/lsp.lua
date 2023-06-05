@@ -110,7 +110,7 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -242,18 +242,26 @@ if vim.fn.filereadable("./suppressions.txt") ~= 0 then
     table.insert(cppcheck_args, 3, "--suppressions-list=" .. vim.fn.getcwd() .. "/suppressions.txt")
 end
 
+local null_ls_sources = function()
+    local result = {
+        null_ls.builtins.formatting.black.with({
+            command = { "python", "-m", "black" }
+        })
+    };
+    -- Enable cppcheck only if suppressions.txt is present
+    if vim.fn.filereadable("./suppressions.txt") ~= 0 then
+        table.insert(result, 1, null_ls.builtins.diagnostics.cppcheck.with({
+            args = cppcheck_args
+        }));
+    end
+    return result;
+end
+
 null_ls.setup({
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
-    sources = {
-        null_ls.builtins.formatting.black.with({
-            command = { "python", "-m", "black" }
-        }),
-        null_ls.builtins.diagnostics.cppcheck.with({
-            args = cppcheck_args
-        }),
-    },
+    sources = null_ls_sources(),
 })
 
 local diagnostic_format = function(diagnostic)
