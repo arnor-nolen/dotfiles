@@ -42,7 +42,7 @@ local lsp_flags = {
     debounce_text_changes = 150,
 }
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -277,7 +277,7 @@ end
 vim.diagnostic.config({
     virtual_text = {
         source = "always", -- Or "if_many"
-        prefix = "",
+        prefix = "",
         format = diagnostic_format,
     },
     float = {
