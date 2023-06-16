@@ -6,6 +6,7 @@ do
 
     for output in $outputs
     do
-        dwlb -status $output $message
+        echo $message
+        dwlb -status $output "$message"
     done
 done
