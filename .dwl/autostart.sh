@@ -14,5 +14,7 @@ foot --server &
 pacman -Sy &
 # dwlb bar
 dwlb -ipc &
+# Discord
+discord --enable-features=UseOzonePlatform --ozone-platform=wayland &
 # Wayland resolution
 /home/arnor/.scripts/wl-resolution.sh
