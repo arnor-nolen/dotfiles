@@ -1,5 +1,3 @@
--- setup must be called before loading the colorscheme
--- Default options:
 require("gruvbox").setup({
     undercurl = true,
     underline = true,
@@ -15,10 +13,14 @@ require("gruvbox").setup({
     invert_signs = false,
     invert_tabline = false,
     invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
+    inverse = true,    -- invert background for search, diffs, statuslines and errors
     contrast = "soft", -- can be "hard", "soft" or empty string
     palette_overrides = {},
     overrides = {
+        FidgetTask = {
+            bg = "NONE",
+            fg = "#b8bb26"
+        },
         DiagnosticSignWarn = {
             bg = "NONE",
             fg = "#fabd2f"
@@ -59,4 +61,5 @@ require("gruvbox").setup({
     dim_inactive = false,
     transparent_mode = true,
 })
+
 vim.cmd("colorscheme gruvbox")

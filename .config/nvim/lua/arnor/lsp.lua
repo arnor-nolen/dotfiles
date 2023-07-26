@@ -169,7 +169,11 @@ end
 -- Format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
-require 'fidget'.setup {}
+require 'fidget'.setup {
+    window = {
+        blend = 0
+    }
+}
 
 -- Set up lspconfig.
 require 'lspconfig'.lua_ls.setup {
