@@ -19,4 +19,4 @@ discord --enable-features=UseOzonePlatform --ozone-platform=wayland &
 # Wayland resolution
 /home/arnor/.scripts/wl-resolution.sh
 # Status bar
-status-text | /home/arnor/.scripts/wl-set-status.sh &
+killall status-text && status-text | /home/arnor/.scripts/wl-set-status.sh &
