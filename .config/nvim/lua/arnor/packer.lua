@@ -38,7 +38,10 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use 'nvim-telescope/telescope-file-browser.nvim'
-    use 'j-hui/fidget.nvim'
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy'
+    }
     use 'numToStr/Comment.nvim'
     use 'tpope/vim-fugitive'
     use {
