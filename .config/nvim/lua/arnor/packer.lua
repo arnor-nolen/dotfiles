@@ -4,9 +4,8 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    use {
-        'ellisonleao/gruvbox.nvim'
-    }
+    use 'ellisonleao/gruvbox.nvim'
+    use 'stevearc/dressing.nvim'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -61,4 +60,5 @@ return require('packer').startup(function(use)
 
     use 'folke/neodev.nvim'
     use 'jose-elias-alvarez/null-ls.nvim'
+    use 'nvim-telescope/telescope-dap.nvim'
 end)
