@@ -31,3 +31,5 @@ nnoremap("<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint
 nnoremap("<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
 nnoremap("<leader>dr", ":lua require'dap'.repl.open()<CR>")
 nnoremap("<leader>x", ":lua require'dap'.terminate()<CR>")
+
+nnoremap("<leader>n", ":Neogen<CR>")

@@ -61,4 +61,11 @@ return require('packer').startup(function(use)
     use 'folke/neodev.nvim'
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'nvim-telescope/telescope-dap.nvim'
+    use {
+        "danymat/neogen",
+        requires = "nvim-treesitter/nvim-treesitter",
+        -- Uncomment next line if you want to follow only stable versions
+        tag = "*"
+    }
+    use 'nvim-treesitter/playground'
 end)
