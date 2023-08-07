@@ -105,7 +105,7 @@ local c_function_extractor = function(node)
             end
         end
         if res.function_declarator then
-            -- No return type since TS is broken
+            -- No return type since TS is broken with macros
             return { true }
         end
         -- not found

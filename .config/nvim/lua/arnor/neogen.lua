@@ -21,9 +21,6 @@ cpp_config.template = {
     }
 }
 
--- local neogen = require('neogen')
--- local config = require('neogen.config')
-
 require('neogen').setup {
     snippet_engine = "luasnip",
     placeholders_text = {
@@ -34,5 +31,3 @@ require('neogen').setup {
         cpp = cpp_config
     }
 }
-
--- neogen.generate_command()
