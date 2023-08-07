@@ -65,7 +65,7 @@ return require('packer').startup(function(use)
         "danymat/neogen",
         requires = "nvim-treesitter/nvim-treesitter",
         -- Uncomment next line if you want to follow only stable versions
-        tag = "*"
+        -- tag = "*"
     }
     use 'nvim-treesitter/playground'
 end)
