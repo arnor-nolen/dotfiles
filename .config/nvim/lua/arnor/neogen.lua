@@ -12,7 +12,7 @@ cpp_config.template = {
         { nil,         "",                     { no_results = true, type = { "file" } } },
         { i.ClassName, "/// \\class %s",       { type = { "class" } } },
         { i.Type,      "/// \\typedef %s",     { type = { "type" } } },
-        { nil,         "/// $1",               { type = { "func", "class", "type" } } },
+        { nil,         "/// $1",               { type = { "func", "class", "type", "enum", "enum_value" } } },
         { i.Tparam,    "/// \\tparam %s $1" },
         { i.Parameter, "/// \\param %s $1" },
         { i.Return,    "/// \\retval $1" },

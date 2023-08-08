@@ -6,6 +6,8 @@ local i = require("neogen.types.template").item
 local cpp_config = {
     parent = {
         class = { "class_specifier", "struct_specifier" },
+        enum = { "enum_specifier" },
+        enum_value = { "enumerator" },
     },
     data = {
         class = {
@@ -21,6 +23,34 @@ local cpp_config = {
                     end,
                 },
             },
+        },
+        enum = {
+            ["enum_specifier"] = {
+                ["0"] = {
+                    extract = function(node)
+                        local tree = {
+                            { retrieve = "first", node_type = "type_identifier", extract = true },
+                        }
+                        local nodes = nodes_utils:matching_nodes_from(node, tree)
+                        local res = extractors:extract_from_matched(nodes)
+                        return res
+                    end,
+                },
+            }
+        },
+        enum_value = {
+            ["enumerator"] = {
+                ["0"] = {
+                    extract = function(node)
+                        local tree = {
+                            { retrieve = "first", node_type = "identifier", extract = true },
+                        }
+                        local nodes = nodes_utils:matching_nodes_from(node, tree)
+                        local res = extractors:extract_from_matched(nodes)
+                        return res
+                    end,
+                },
+            }
         },
     },
 }
