@@ -235,43 +235,68 @@ require 'lspconfig'.cmake.setup {
     capabilities = capabilities,
 }
 
--- null_ls setup
-local null_ls = require('null-ls')
+-- efm setup
+local efm = require('lspconfig').efm
+
+local cppcheck = require('efmls-configs.linters.cppcheck')
+
 local cppcheck_args = {
-    "--enable=all",
-    "--template=gcc",
-    "--force",
-    "$FILENAME"
+    require('efmls-configs.fs').executable(cppcheck.prefix),
+    " --enable=all",
+    " --template=gcc",
+    " --force",
+    " --error-exitcode=1",
+    " ${INPUT}"
 }
 
 if vim.fn.filereadable("./suppressions.txt") ~= 0 then
-    table.insert(cppcheck_args, 3, "--suppressions-list=" .. vim.fn.getcwd() .. "/suppressions.txt")
+    table.insert(cppcheck_args, 4, " --suppressions-list=" .. vim.fn.getcwd() .. "/suppressions.txt")
 end
 
-local null_ls_sources = function()
-    local result = {
-        null_ls.builtins.formatting.black.with({
-            command = { "python", "-m", "black" }
-        })
-    };
-    -- Enable cppcheck only if suppressions.txt is present
-    if vim.fn.filereadable("./suppressions.txt") ~= 0 then
-        table.insert(result, 1, null_ls.builtins.diagnostics.cppcheck.with({
-            args = cppcheck_args
-        }));
-    end
-    return result;
+cppcheck.lintCommand = table.concat(cppcheck_args)
+
+if vim.fn.filereadable("./suppressions.txt") == 0 then
+    cppcheck = {}
 end
 
-null_ls.setup({
-    on_attach = on_attach,
+
+local languages = {
+    cpp = {
+        cppcheck
+    },
+    python = {
+        require('efmls-configs.formatters.black')
+    }
+};
+
+local efmls_config = {
+    filetypes = vim.tbl_keys(languages),
+    init_options = {
+        documentFormatting = true,
+        documentRangeFormatting = true,
+        hover = true,
+        documentSymbol = true,
+        codeAction = true,
+        completion = true,
+    },
+    settings = {
+        languages = languages
+    }
+};
+
+efm.setup(vim.tbl_extend('force', efmls_config, {
     flags = lsp_flags,
-    capabilities = capabilities,
-    sources = null_ls_sources(),
-})
+    on_attach = on_attach,
+    capabilities = capabilities
+}))
 
 local diagnostic_format = function(diagnostic)
     local text;
+    -- If message starts with a bracket, it's a tool name and comes from efm.
+    if diagnostic.message:find("[", 1, true) == 1 then
+        local tool_loc = diagnostic.message:find("]", 1, true)
+        diagnostic.message = diagnostic.message:sub(2, tool_loc - 1) .. ":" .. diagnostic.message:sub(tool_loc + 1)
+    end
     if diagnostic.code == nil then
         text = diagnostic.message;
     else

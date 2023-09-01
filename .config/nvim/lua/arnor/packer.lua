@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
     use 'theHamsta/nvim-dap-virtual-text'
 
     use 'folke/neodev.nvim'
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'creativenull/efmls-configs-nvim'
     use 'nvim-telescope/telescope-dap.nvim'
     use {
         "danymat/neogen",
