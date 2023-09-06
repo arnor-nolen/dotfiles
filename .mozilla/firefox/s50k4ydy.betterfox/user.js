@@ -247,6 +247,7 @@ user_pref("findbar.highlightAll", true);
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
 // Enter your personal prefs below this line:
+user_pref("ui.key.menuAccessKeyFocuses", false); // Disable menu when pressing alt.
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
