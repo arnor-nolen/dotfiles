@@ -241,7 +241,7 @@ local efm = require('lspconfig').efm
 local cppcheck = require('efmls-configs.linters.cppcheck')
 
 local cppcheck_args = {
-    require('efmls-configs.fs').executable(cppcheck.prefix),
+    "cppcheck",
     " --enable=all",
     " --template=gcc",
     " --force",
