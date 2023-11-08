@@ -19,3 +19,9 @@ discord --enable-features=UseOzonePlatform --ozone-platform=wayland &
 # Status bar
 killall status-text
 status-text | /home/arnor/.scripts/wl-set-status.sh &
+
+# Screen capture.
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
+systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+systemctl --user start wireplumber
+
