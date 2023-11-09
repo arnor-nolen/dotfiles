@@ -4,8 +4,15 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    -- Colorschemes, choose one.
+    --
     -- use 'ellisonleao/gruvbox.nvim'
     use 'rebelot/kanagawa.nvim'
+    -- use 'savq/melange-nvim'
+    -- use 'rmehri01/onenord.nvim'
+    -- use 'AlexvZyl/nordic.nvim'
+    -- use { 'catppuccin/nvim', as = 'catppuccin' }
+
     use 'stevearc/dressing.nvim'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
