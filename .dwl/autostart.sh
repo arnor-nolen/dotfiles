@@ -18,7 +18,7 @@ dwlb -ipc &
 discord --enable-features=UseOzonePlatform --ozone-platform=wayland &
 # Status bar
 killall status-text
-status-text | /home/arnor/.scripts/wl-set-status.sh &
+status-text | dwlb -status-stdin all &
 
 # Screen capture.
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
