@@ -10,4 +10,10 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_USE_XINPUT2=1
 
+# Jira
+if [ -e ~/jira-token.txt ]
+then
+    export JIRA_API_TOKEN=$(cat ~/jira-token.txt)
+fi
+
 dwl

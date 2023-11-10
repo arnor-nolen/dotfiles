@@ -19,7 +19,6 @@ discord --enable-features=UseOzonePlatform --ozone-platform=wayland &
 # Status bar
 killall status-text
 status-text | dwlb -status-stdin all &
-
 # Screen capture.
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
 systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
