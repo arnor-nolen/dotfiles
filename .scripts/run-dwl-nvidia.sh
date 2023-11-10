@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Set WLRoots renderer to Vulkan to avoid flickering
+export WLR_RENDERER=vulkan
 # OpenGL Variables
 export GBM_BACKEND=nvidia-drm
 export __GL_GSYNC_ALLOWED=0
