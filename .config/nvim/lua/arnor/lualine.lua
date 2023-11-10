@@ -1,7 +1,17 @@
+local custom_theme = require('lualine.themes.16color')
+
+custom_theme.normal.b = { fg = '#dcd7ba', bg = '#363646' };
+custom_theme.normal.c = custom_theme.normal.b;
+custom_theme.normal.a = { fg = '#1f1f28', bg = '#6a9589', gui = 'bold' };
+custom_theme.insert.a = { fg = custom_theme.normal.a.fg, bg = '#76946a', gui = custom_theme.normal.a.gui };
+custom_theme.replace.a = { fg = custom_theme.normal.a.fg, bg = '#c34043', gui = custom_theme.normal.a.gui };
+custom_theme.visual.a = { fg = custom_theme.normal.a.fg, bg = '#dca561', gui = custom_theme.normal.a.gui };
+custom_theme.inactive = custom_theme.normal;
+
 require('lualine').setup({
     options = {
         icons_enabled = true,
-        theme = 'moonfly',
+        theme = custom_theme,
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
