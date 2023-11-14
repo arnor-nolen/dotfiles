@@ -193,6 +193,7 @@ require 'lspconfig'.lua_ls.setup {
 
 require 'lspconfig'.clangd.setup {
     on_attach = on_attach,
+    cmd = { "/home/arnor/.scripts/clangd-qnx710.sh" },
     flags = lsp_flags,
     capabilities = capabilities,
 }
