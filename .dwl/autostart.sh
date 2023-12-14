@@ -1,9 +1,11 @@
 #!/bin/sh
 
+# Screen capture.
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
+systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+systemctl --user start wireplumber
 # Notifications
 dunst &
-# Set volume to 50 for headphones and speakers
-pulsemixer --id sink-1 --set-volume 75 --id sink-3 --set-volume 75
 # Disk mounter
 udiskie &
 # Wallpaper
@@ -16,11 +18,10 @@ pacman -Sy &
 dwlb -ipc &
 # Discord
 discord --enable-features=UseOzonePlatform --ozone-platform=wayland &
+# Set volume to 75 for all sinks, 100 for inputs
+sleep 2 # Delay so sinks can initialize properly.
+pulsemixer --list-sinks | awk '{print substr($3, 0, length($3) - 1)}' | xargs -I {} pulsemixer --id {} --set-volume 75
+pulsemixer --list-sources | awk '{print substr($3, 0, length($3) - 1)}' | xargs -I {} pulsemixer --id {} --set-volume 100
 # Status bar
 killall status-text
 status-text | dwlb -status-stdin all &
-# Screen capture.
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
-systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
-systemctl --user start wireplumber
-
