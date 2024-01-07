@@ -17,7 +17,7 @@ require('lazy').setup({
     -- Colorschemes, choose one.
     --
     --  'ellisonleao/gruvbox.nvim',
-    'rebelot/kanagawa.nvim',
+    { 'rebelot/kanagawa.nvim', priority = 1000 },
     --  'savq/melange-nvim',
     --  'rmehri01/onenord.nvim',
     --  'AlexvZyl/nordic.nvim',
@@ -67,7 +67,10 @@ require('lazy').setup({
     'lewis6991/gitsigns.nvim',
 
     'mfussenegger/nvim-dap',
-    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = { "mfussenegger/nvim-dap" }
+    },
     'theHamsta/nvim-dap-virtual-text',
 
     'folke/neodev.nvim',
@@ -78,4 +81,8 @@ require('lazy').setup({
         dependencies = "nvim-treesitter/nvim-treesitter",
     },
     'nvim-treesitter/playground',
+}, {
+    ui = {
+        border = "single",
+    }
 })
