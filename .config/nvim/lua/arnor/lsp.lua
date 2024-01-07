@@ -172,8 +172,10 @@ end
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 require 'fidget'.setup {
-    window = {
-        blend = 0
+    notification = {
+        window = {
+            winblend = 0
+        }
     }
 }
 

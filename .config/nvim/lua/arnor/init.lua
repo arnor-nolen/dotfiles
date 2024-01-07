@@ -1,4 +1,4 @@
-require('arnor.packer')
+require('arnor.lazy')
 require('arnor.snippets')
 require('arnor.lsp')
 require('arnor.treesitter')
