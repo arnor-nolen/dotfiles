@@ -320,5 +320,9 @@ vim.diagnostic.config({
     },
 })
 
+require 'trouble'.setup({
+    padding = false
+})
+
 -- Hide markdown errors
 vim.cmd [[hi link markdownError NONE]]

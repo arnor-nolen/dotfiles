@@ -32,4 +32,8 @@ nnoremap("<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input(
 nnoremap("<leader>dr", ":lua require'dap'.repl.open()<CR>")
 nnoremap("<leader>x", ":lua require'dap'.terminate()<CR>")
 
+nnoremap("<leader>tt", ":TroubleToggle<CR>")
+nnoremap("<leader>tn", ":lua require('trouble').next({skip_groups = true, jump = true})<CR>")
+nnoremap("<leader>tp", ":lua require('trouble').previous({ skip_groups = true, jump = true })<CR><CR>")
+
 nnoremap("<leader>n", ":Neogen<CR>")

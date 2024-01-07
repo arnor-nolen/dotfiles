@@ -81,6 +81,10 @@ require('lazy').setup({
         dependencies = "nvim-treesitter/nvim-treesitter",
     },
     'nvim-treesitter/playground',
+    {
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
 }, {
     ui = {
         border = "single",
