@@ -1,31 +1,6 @@
-#custom-dwl_layout {
- color: #ebdbb2
-}
-
-#custom-dwl_title {
- color: #ebdbb2
-}
-
-#custom-dwl_tag {
- color: #ebdbb2
-}
-
-#custom-dwl_tag.selected {
- color: #282828;
- background-color: #83a598
-}
-
-/* #custom-dwl_tag.urgent { */
-/*  background-color: #FF0000 */
-/* } */
-
-/* #custom-dwl_tag.active { */
-/*  border-top: 1px solid #EC5800 */
-/* } */
-
 * {
     font-family: Fira Code Nerd Font Mono, monospace;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 window#waybar {
@@ -97,20 +72,16 @@ button:hover {
 }
 
 #clock,
-#battery,
 #cpu,
 #memory,
 #disk,
 #temperature,
-#backlight,
 #network,
 #pulseaudio,
 #wireplumber,
-#custom-media,
 #tray,
 #mode,
-#idle_inhibitor,
-#scratchpad,
+#language,
 #mpd {
     padding: 0 10px;
     color: #ffffff;
@@ -135,33 +106,6 @@ button:hover {
     background-color: #64727D;
 }
 
-#battery {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 label:focus {
     background-color: #000000;
 }
@@ -177,10 +121,6 @@ label:focus {
 
 #disk {
     background-color: #964B00;
-}
-
-#backlight {
-    background-color: #90b1b1;
 }
 
 #network {
@@ -210,28 +150,6 @@ label:focus {
     background-color: #f53c3c;
 }
 
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
-
 #tray {
     background-color: #2980b9;
 }
@@ -245,60 +163,7 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
 #language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
+    background-color: #2ecc71;
     color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
 }
