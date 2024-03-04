@@ -24,3 +24,6 @@ sleep 3 && pulsemixer --list-sources | awk '{print substr($3, 0, length($3) - 1)
 # Status bar
 killall status-text
 status-text | dwlb -status-stdin all &
+
+# Set cursor theme for Firefox.
+gsettings set org.gnome.desktop.interface cursor-theme Phinger
