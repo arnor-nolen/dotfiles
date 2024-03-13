@@ -97,10 +97,13 @@
         }
     },
     "custom/pacman": {
-        "format": "[ {3:3}]",
-        "interval": 3600,
-        "exec": "checkupdates | wc -l",
-        "on-click": "pkill -SIGRTMIN+8 waybar",
-        "signal": 8
+        "format": "[{icon}{}]",
+        "return-type": "json",
+        "format-icons": {
+            "pending-updates": " ",
+            "updated": " 0"
+        },
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates"
     }
 }
