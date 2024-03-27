@@ -23,7 +23,17 @@ require('telescope').setup {
             hidden = true,
             file_ignore_patterns = { "node_modules", ".git", ".cache" }
         },
-    }
+        buffers = {
+            mappings = {
+                n = {
+                    ['<C-f>'] = require('telescope.actions').delete_buffer
+                },
+                i = {
+                    ['<C-f>'] = require('telescope.actions').delete_buffer
+                }
+            }
+        }
+    },
 }
 
 require('telescope').load_extension('fzf')
