@@ -11,7 +11,7 @@
     ],
     "modules-center": [],
     "modules-right": [
-        "custom/pacman",
+        "custom/updates",
         "cpu",
         "memory",
         "pulseaudio",
@@ -96,14 +96,14 @@
             "default": ""
         }
     },
-    "custom/pacman": {
-        "format": "[{icon}{}]",
-        "return-type": "json",
-        "format-icons": {
-            "pending-updates": " ",
-            "updated": " 0"
-        },
-        "exec-if": "which waybar-updates",
-        "exec": "waybar-updates"
-    }
+    "custom/updates": {
+       "format": "[{icon}{:>3}]",
+       "return-type": "json",
+       "format-icons": {
+           "has-updates": " ",
+           "updated": " "
+       },
+       "exec-if": "which waybar-module-pacman-updates",
+       "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
+   }
 }
