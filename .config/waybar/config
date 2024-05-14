@@ -74,7 +74,8 @@
     },
     "hyprland/workspaces": {
         "format": "{icon}",
-        "all-outputs": true,
+        "active-only": false,
+        "all-outputs": false,
         "persistent-workspaces": {
             "1": [],
             "2": [],
