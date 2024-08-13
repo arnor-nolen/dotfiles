@@ -25,5 +25,6 @@ sleep 3 && pulsemixer --list-sources | awk '{print substr($3, 0, length($3) - 1)
 killall status-text
 status-text | dwlb -status-stdin all &
 
-# Set cursor theme for Firefox.
+# Set cursor theme for GTK applications.
+gsettings set org.gnome.desktop.interface cursor-size 24
 gsettings set org.gnome.desktop.interface cursor-theme Phinger
