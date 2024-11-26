@@ -9,6 +9,10 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 # Firefox wayland environment variable
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_USE_XINPUT2=1
+# Set cursor theme for legacy applications.
+# GTK cursor settings are set from autostart.sh.
+export XCURSOR_THEME=Phinger
+export XCURSOR_SIZE=24
 
 # Jira
 if [ -e ~/jira-token.txt ]
