@@ -10,7 +10,6 @@ cpp_config.template = {
         { nil,         "/// $1",               { no_results = true, type = { "func", "file", "class" } } },
         { nil,         "/// \\since Kanzi $1", { no_results = true, type = { "func", "file", "class" } } },
         { nil,         "",                     { no_results = true, type = { "file" } } },
-        { i.ClassName, "/// \\class %s",       { type = { "class" } } },
         { i.Type,      "/// \\typedef %s",     { type = { "type" } } },
         { nil,         "/// $1",               { type = { "func", "class", "type", "enum", "enum_value" } } },
         { i.Tparam,    "/// \\tparam %s $1" },
