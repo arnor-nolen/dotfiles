@@ -20,7 +20,8 @@
     ],
     // Modules configuration
     "clock": {
-        "format": "[{:%a %F %I:%M %p}]"
+        "format": "[{:%a %F %I:%M %p}]",
+        "tooltip": false
     },
     "cpu": {
         "format": "[ {usage:3}%]",
@@ -98,13 +99,14 @@
         }
     },
     "custom/updates": {
-       "format": "[{2}{0:>3}]",
+       "format": "[{2} {0:>3}]",
        "return-type": "json",
        "format-icons": {
-           "has-updates": " ",
-           "updated": " "
+           "pending-updates": "",
+           "updated": ""
        },
-       "exec-if": "which waybar-module-pacman-updates",
-       "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
+       "hide-empty-text": true,
+       "exec-if": "which waybar-updates",
+       "exec": "waybar-updates --tooltip '{[ :pacman:]}{[ :aur:]}\n{}'"
    }
 }
