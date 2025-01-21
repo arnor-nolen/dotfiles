@@ -98,7 +98,7 @@
         }
     },
     "custom/updates": {
-       "format": "[{icon}{:>3}]",
+       "format": "[{2}{0:>3}]",
        "return-type": "json",
        "format-icons": {
            "has-updates": " ",
