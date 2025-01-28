@@ -7,6 +7,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Default editor choice.
 export EDITOR=vim
 
+# Use Ninja by default in CMake builds.
+export CMAKE_GENERATOR=Ninja
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
