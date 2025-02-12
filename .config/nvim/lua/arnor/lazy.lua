@@ -69,7 +69,7 @@ require('lazy').setup({
     'mfussenegger/nvim-dap',
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap" }
+        dependencies = { "nvim-neotest/nvim-nio", "mfussenegger/nvim-dap" }
     },
     'theHamsta/nvim-dap-virtual-text',
 
