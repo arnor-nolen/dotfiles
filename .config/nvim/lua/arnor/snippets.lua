@@ -66,7 +66,7 @@ ls.add_snippets('cpp', {
         class {}
         {{
         public:
-            explicit {}() = default;
+            explicit {}() noexcept = default;
             ~{}() = default;
 
             {}(const {}&) = delete;
