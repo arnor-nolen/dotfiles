@@ -249,6 +249,7 @@ local cppcheck_args = {
     " --template=gcc",
     " --force",
     " --error-exitcode=1",
+    " --check-level=exhaustive",
     " ${INPUT}"
 }
 
