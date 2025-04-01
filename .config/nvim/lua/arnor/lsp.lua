@@ -168,8 +168,62 @@ function vim.lsp.util.open_floating_preview(contents, syntax, options, ...)
     return orig_util_open_floating_preview(contents, syntax, options, ...)
 end
 
+local excluded_filetypes = {
+    'c',
+    'h',
+}
+
+local clang_format_filetypes = {
+    'cpp',
+    'hpp',
+}
+
 -- Format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+    pattern = { '*' },
+    callback = function()
+        local ft = vim.bo.filetype
+        local bufnr = vim.api.nvim_get_current_buf()
+
+        -- Use clang-format for these filetypes.
+        -- NOTE: InsertNewlineAtEOF might be ignored.
+        for _, clang_format_filetype in ipairs(clang_format_filetypes) do
+            if ft == clang_format_filetype then
+                local content = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+                local job_id = vim.fn.jobstart({ 'clang-format' }, {
+                    stdout_buffered = true,
+                    on_stdout = function(_, data)
+                        if data and table.concat(data) ~= '' then
+                            if data[#data] == '' then
+                                data[#data] = nil
+                            end
+                            vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, data)
+                        end
+                    end,
+                    on_stderr = function(_, data)
+                        if data then
+                            print(table.concat(data, '\n'))
+                        end
+                    end,
+                })
+                vim.fn.chansend(job_id, content)
+                vim.fn.chanclose(job_id, 'stdin')
+                vim.fn.jobwait({ job_id }, -1)
+                return
+            end
+        end
+
+        -- Ignore formatting for these filetypes.
+        for _, excluded_filetype in ipairs(excluded_filetypes) do
+            if ft == excluded_filetype then
+                return
+            end
+        end
+
+        -- Everything else uses LSP formatter.
+        vim.lsp.buf.format()
+    end,
+})
 
 require 'fidget'.setup {
     notification = {
