@@ -199,6 +199,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
                                 data[#data] = nil
                             end
                             vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, data)
+                            vim.diagnostic.show()
                         end
                     end,
                     on_stderr = function(_, data)
