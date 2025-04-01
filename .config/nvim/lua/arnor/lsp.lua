@@ -184,13 +184,14 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     callback = function()
         local ft = vim.bo.filetype
         local bufnr = vim.api.nvim_get_current_buf()
+        local name = vim.api.nvim_buf_get_name(bufnr)
 
         -- Use clang-format for these filetypes.
         -- NOTE: InsertNewlineAtEOF might be ignored.
         for _, clang_format_filetype in ipairs(clang_format_filetypes) do
             if ft == clang_format_filetype then
                 local content = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-                local job_id = vim.fn.jobstart({ 'clang-format' }, {
+                local job_id = vim.fn.jobstart({ 'clang-format', '--assume-filename', name }, {
                     stdout_buffered = true,
                     on_stdout = function(_, data)
                         if data and table.concat(data) ~= '' then
