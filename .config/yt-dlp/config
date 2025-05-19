@@ -1,4 +1,3 @@
--f bestvideo[vcodec^=avc1][height=1080]+bestaudio/best[vcodec^=avc1][height=1080]/bestvideo[vcodec^=avc1][height=720]+bestaudio/best[vcodec^=avc1][height=720]/best
 --embed-chapters
 --sponsorblock-mark all
 --embed-metadata
