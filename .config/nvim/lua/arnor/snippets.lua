@@ -67,12 +67,12 @@ ls.add_snippets('cpp', {
         {{
         public:
             explicit {}() noexcept = default;
-            ~{}() = default;
+            ~{}() noexcept = default;
 
-            {}(const {}&) = delete;
+            {}(const {}&) noexcept = delete;
             {}({}&&) noexcept = delete;
 
-            {}& operator=(const {}&) = delete;
+            {}& operator=(const {}&) noexcept = delete;
             {}& operator=({}&&) noexcept = delete;
         }};
         #endif
