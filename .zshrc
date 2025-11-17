@@ -11,6 +11,9 @@ export EDITOR=vim
 # Use Ninja by default in CMake builds.
 export CMAKE_GENERATOR=Ninja
 
+# Use colored CTest output.
+export CLICOLOR_FORCE=ON 
+
 # Add MinGW compiler paths to Wine.
 export WINEPATH=/usr/x86_64-w64-mingw32/bin
 
