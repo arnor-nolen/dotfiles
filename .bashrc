@@ -59,3 +59,10 @@ alias compress="tar -c -I 'xz -9 -T0 -M80%' -f"
 
 # Colored output for ls command.
 source ~/.config/bash/ls_colors.sh
+
+# Use up and down arrows to perform partial history search.
+bind '"\e[A": history-search-backward'
+bind '"\eOA": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\eOB": history-search-forward'
+
