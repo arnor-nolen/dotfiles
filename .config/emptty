@@ -4,6 +4,6 @@ Selection=true
 xrdb -merge ~/.Xresources
 
 . /etc/profile
-. ~/.zshrc
+. ~/.bashrc
 
 exec $@
