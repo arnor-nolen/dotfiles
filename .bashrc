@@ -16,6 +16,12 @@ export ___BRAINY_TOP_RIGHT=' '
 export ___BRAINY_BOTTOM='exitcode char'
 source /usr/lib/bash-it-git/bash_it.sh
 
+# Spawn new bash session in the same directory on Ctrl-Shift-N.
+source ~/.config/bash/osc-7.sh
+
+# Add alias completion.
+source /usr/share/bash-complete-alias/complete_alias
+
 # Clang-format version selector.
 export PATH="/opt/clang-format-static:$PATH"
 
@@ -65,4 +71,7 @@ bind '"\e[A": history-search-backward'
 bind '"\eOA": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\eOB": history-search-forward'
+
+# Register all aliases for bash completion.
+complete -F _complete_alias "${!BASH_ALIASES[@]}"
 
